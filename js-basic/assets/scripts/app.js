@@ -27,7 +27,8 @@ function add() {
     number: enteredNumber,
     result: currentResult,
   };
-  logEntries.push(logEntry);
+  // logEntries.push(logEntry["number"]);
+  logEntries.push(logEntry["operation"]);
   console.log(logEntries);
 }
 
