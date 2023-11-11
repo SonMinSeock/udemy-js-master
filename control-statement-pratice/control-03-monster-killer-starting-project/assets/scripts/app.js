@@ -156,8 +156,8 @@ function healPlayerHandler() {
 function printLog() {
   let i = 0;
   for (const logEntry of battleLog) {
+    console.log(`#${i}`);
     for (const key in logEntry) {
-      console.log("i : ", i);
       console.log(`${key} : ${logEntry[key]}`);
     }
     i++;
