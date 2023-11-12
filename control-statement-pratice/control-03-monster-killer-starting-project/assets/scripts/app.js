@@ -19,14 +19,23 @@ function getMaxLifeValues() {
 
   // enteredValue validation...
   if (isNaN(parsedValue) || parsedValue <= 0) {
-    console.log("errror");
     throw { message: "Invalid User Input Not Number!!" };
   }
 
   return parsedValue;
 }
 
-let chosenMaxLife = getMaxLifeValues();
+let chosenMaxLife;
+
+try {
+  chosenMaxLife = getMaxLifeValues();
+} catch (error) {
+  console.log("catch... Error : ", error);
+  chosenMaxLife = 100;
+} /*finally {
+  console.log("finally 구문!!");
+}*/
+
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let hasBonusLife = true;
