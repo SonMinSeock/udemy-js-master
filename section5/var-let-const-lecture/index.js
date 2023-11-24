@@ -24,5 +24,11 @@
 // greet();
 
 // 2. 호이스팅 이해.
+// console.log(username);
+// var username = "Son";
+
+// 3. 엄격 모드 이해.
+"use strict";
+let username = "Son";
+var undefined = 1;
 console.log(username);
-var username = "Son";
