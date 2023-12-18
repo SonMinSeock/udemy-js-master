@@ -14,5 +14,9 @@ const start = function () {
 // person.greet();
 
 //console.log(typeof startGame);
-console.dir(start);
+//console.dir(start);
+
+// startGameBtn.addEventListener("click", function () {
+//   console.log("Game is Starting...", age);
+// });
 startGameBtn.addEventListener("click", start);
