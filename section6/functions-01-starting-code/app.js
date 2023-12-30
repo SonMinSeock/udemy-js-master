@@ -41,27 +41,28 @@ const getWinner = (computerChoice, userChoice) =>
     ? RESULT_PLAYERS_WINS
     : RESULT_COMPUTER_WINS;
 
-/*
-  if (computerChoice === userChoice) {
-    return RESULT_DRAW;
-  } else if (
-    (computerChoice === ROCK && userChoice === PAPER) ||
-    (computerChoice === PAPER && userChoice === SCISSORS) ||
-    (computerChoice === SCISSORS && userChoice === ROCK)
-  ) {
-    return RESULT_PLAYERS_WINS;
-  } else {
-    return RESULT_COMPUTER_WINS;
-  }*/
-
 startGameBtn.addEventListener("click", () => {
   if (gameIsRunning) {
     return;
   }
   gameIsRunning = true;
   console.log("Game is Starting...");
+
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
   const winner = getWinner(computerSelection, playerSelection);
-  console.log(winner);
+
+  let message = `You picked ${playerSelection}, computer picked ${computerSelection} there for you `;
+
+  if (winner === RESULT_DRAW) {
+    message += "had a draw.";
+  } else if (winner === RESULT_PLAYERS_WINS) {
+    message += "won.";
+  } else {
+    message += "lost.";
+  }
+
+  alert(message);
+
+  gameIsRunning = false;
 });
