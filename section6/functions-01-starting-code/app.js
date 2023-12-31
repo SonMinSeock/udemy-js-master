@@ -97,5 +97,21 @@ const showResult = (message, result) => {
   alert(message + " " + result);
 };
 
+const person1 = { name: "Jo" };
+
+const person2 = {
+  name: "Kim",
+  study() {
+    console.log(this.name + "이/가 공부를 하고 있습니다.");
+  },
+};
+
+function greet(greeting, message) {
+  return `${greeting} ${this.name}. ${message}`;
+}
+
+person2.study.call(person1);
+console.log(greet.apply(person2, ["안녕~ ", "화이팅!!!"]));
+
 combine(showResult.bind(this, "The result after adding all number is"), "ADD", 1, 2, 3, 4, 5);
 combine(showResult.bind(this, "The result after subtracting all number is"), "SUB", 1, 2, 3, 4, 5, 6, 7, 8);
