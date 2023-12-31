@@ -77,7 +77,7 @@ startGameBtn.addEventListener("click", () => {
 });
 
 // 게임에 관련있지 않은 코드.
-function sumUp(a, b, ...numbers) {
+function sumUp(resultHandler, ...numbers) {
   const validateNumber = (number) => {
     return isNaN(number) ? 0 : number;
   };
@@ -85,7 +85,12 @@ function sumUp(a, b, ...numbers) {
   for (const num of numbers) {
     sum += validateNumber(num);
   }
-  return sum;
+
+  resultHandler(sum);
 }
 
-console.log(sumUp(1, 2, 3, 4, 5));
+const showResult = (result) => {
+  alert(`The result after adding all number is: ${result}`);
+};
+
+sumUp(showResult, 1, 2, 3, 4, 5);
