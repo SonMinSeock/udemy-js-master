@@ -21,4 +21,11 @@ toggleBtn.addEventListener("click", () => {
 
 const newLi = document.createElement("li");
 newLi.textContent = "Item 4";
-ul.appendChild(newLi);
+//ul.appendChild(newLi);
+//ul.append(newLi);
+// ul.prepend(newLi);
+//ul.lastElementChild.before(newLi);
+// ul.lastElementChild.after(newLi);
+//ul.firstElementChild.replaceWith(newLi);
+const secondLi = ul.children[1];
+secondLi.insertAdjacentElement("afterend", newLi);
