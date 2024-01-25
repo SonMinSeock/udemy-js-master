@@ -1,5 +1,7 @@
 const section = document.querySelector("section");
 const toggleBtn = document.querySelector("button");
+const ul = document.querySelector("ul");
+const div = document.querySelector("div");
 
 //section.style.backgroundColor = "green";
 //section.className = "red-bg visible";
@@ -14,3 +16,5 @@ toggleBtn.addEventListener("click", () => {
   section.classList.toggle("visible");
   section.classList.toggle("invisible");
 });
+
+ul.innerHTML = `${ul.innerHTML} <li>item 4</li>`;
