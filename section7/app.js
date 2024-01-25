@@ -17,4 +17,8 @@ toggleBtn.addEventListener("click", () => {
   section.classList.toggle("invisible");
 });
 
-ul.innerHTML = `${ul.innerHTML} <li>item 4</li>`;
+// ul.innerHTML = `${ul.innerHTML} <li>item 4</li>`;
+
+const newLi = document.createElement("li");
+newLi.textContent = "Item 4";
+ul.appendChild(newLi);
