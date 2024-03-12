@@ -8,7 +8,24 @@ const entryTextSection = document.getElementById("entry-text");
 
 const movies = [];
 
-function renderNewMovieElement(title, imageUrl, rating) {
+function deleteMovieHandler(movieId) {
+  let movieIndex = 0;
+
+  for (const moive of movies) {
+    if (moive.id === movieId) {
+      break;
+    }
+    movieIndex++;
+  }
+
+  movies.splice(movieIndex, 1);
+
+  const movieList = document.getElementById("movie-list");
+
+  movieList.children[movieIndex].remove();
+}
+
+function renderNewMovieElement(id, title, imageUrl, rating) {
   const newMovieElement = document.createElement("li");
   newMovieElement.classList.add("movie-element");
   newMovieElement.innerHTML = `
@@ -20,6 +37,8 @@ function renderNewMovieElement(title, imageUrl, rating) {
   <p>${rating}</p>
   </div>
   `;
+
+  newMovieElement.addEventListener("click", deleteMovieHandler.bind(null, id));
 
   const movieList = document.getElementById("movie-list");
   movieList.append(newMovieElement);
@@ -78,6 +97,7 @@ function addMovieHandler() {
   }
 
   const newMovie = {
+    id: Math.random().toString(),
     title: titleValue,
     image: imageUrlValue,
     rating: ratingValue,
@@ -88,7 +108,7 @@ function addMovieHandler() {
 
   toggleAddMovieModal();
   updateUI();
-  renderNewMovieElement(newMovie.title, newMovie.image, newMovie.rating);
+  renderNewMovieElement(newMovie.id, newMovie.title, newMovie.image, newMovie.rating);
 }
 
 startAddMovieButton.addEventListener("click", startAddMovieClickHandler);
