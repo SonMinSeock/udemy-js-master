@@ -37,31 +37,36 @@
 
 // console.log(personalData[1]);
 
-const hobbies = ["Sports", "Cooking"];
+// const hobbies = ["Sports", "Cooking"];
 
-hobbies.push("Reading");
-hobbies.unshift("Coding");
+// hobbies.push("Reading");
+// hobbies.unshift("Coding");
 
-const poppedValue = hobbies.pop();
-hobbies.shift();
+// const poppedValue = hobbies.pop();
+// hobbies.shift();
 
-console.log(poppedValue);
-console.log(hobbies);
+// console.log(poppedValue);
+// console.log(hobbies);
 
-hobbies[1] = "Coding";
-console.log(hobbies);
+// hobbies[1] = "Coding";
+// console.log(hobbies);
 
-hobbies[5] = "Reading";
-console.log(hobbies, hobbies[4]);
+// hobbies[5] = "Reading";
+// console.log(hobbies, hobbies[4]);
 
-hobbies.splice(1, 0, "Good Food", "Skating");
+// hobbies.splice(1, 0, "Good Food", "Skating");
 
-const removedElement = hobbies.splice(0, 1);
-console.log(hobbies);
-console.log(removedElement);
+// const removedElement = hobbies.splice(0, 1);
+// console.log(hobbies);
+// console.log(removedElement);
 
-hobbies.splice(-1, 1);
-console.log(hobbies);
+// hobbies.splice(-1, 1);
+// console.log(hobbies);
 
-hobbies.splice(0);
-console.log(hobbies);
+// hobbies.splice(0);
+// console.log(hobbies);
+
+const testResults = [1, 3.4, 3, 5.2, 32.1, 3, -10];
+const storedResults = testResults.slice(2);
+
+console.log(storedResults);
