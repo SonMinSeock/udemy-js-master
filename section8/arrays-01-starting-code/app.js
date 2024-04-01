@@ -67,6 +67,7 @@
 // console.log(hobbies);
 
 const testResults = [1, 3.4, 3, 5.2, 32.1, 3, -10];
-const storedResults = testResults.slice(2);
+// const storedResults = testResults.slice(2);
+const storedResults = testResults.concat([12, -3, 14, 23])
 
 console.log(storedResults);
