@@ -22,9 +22,7 @@ prices.sort((a, b) => {
 
 console.log("Reserving : ", prices);
 
-const filteredPrices = prices.filter((price, idx, prices) => {
-  return price === 10.0 || price === 3.25;
-});
+const filteredPrices = prices.filter((price) => price === 10.0 || price === 3.25);
 
 console.log("Filtering : ", filteredPrices);
 
