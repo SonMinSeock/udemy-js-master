@@ -28,7 +28,19 @@
 // var username = "Son";
 
 // 3. 엄격 모드 이해.
-"use strict";
-let username = "Son";
-var undefined = 1;
-console.log(username);
+// "use strict";
+// var username = "Son";
+// var undefined = 1;
+// console.log(username);
+
+// 4. JS엔진이 코드를 어떻게 분석 할까?
+function getUserName() {
+  return prompt("Your Name: ", "");
+}
+
+function greet() {
+  const userName = getUserName();
+  console.log("Hello " + userName);
+}
+
+greet();
