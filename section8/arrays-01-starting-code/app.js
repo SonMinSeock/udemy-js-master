@@ -20,19 +20,11 @@ prices.sort((a, b) => {
   }
 });
 
-console.log("Reserving : ", prices);
+// prices.forEach((price) => (sum += price));
+// console.log("Prices 총합 : ", sum);
 
-const filteredPrices = prices.filter((price) => price === 10.0 || price === 3.25);
+const sum = prices.reduce((prevValue, curValue, curIdx, prices) => {
+  return prevValue + curValue;
+}, 0);
 
-console.log("Filtering : ", filteredPrices);
-
-const tax = 0.19;
-const taxAdjustedPrices = prices.map((price, idx, prices) => {
-  const priceObj = {
-    index: idx,
-    taxAdjPrice: price * (1 + tax),
-  };
-  return priceObj;
-});
-
-console.log(taxAdjustedPrices);
+console.log("Prices 총합 : ", sum);
