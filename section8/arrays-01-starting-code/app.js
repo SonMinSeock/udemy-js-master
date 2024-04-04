@@ -28,3 +28,11 @@ const sum = prices.reduce((prevValue, curValue, curIdx, prices) => {
 }, 0);
 
 console.log("Prices 총합 : ", sum);
+
+const data = "new york;10.99;20.3";
+const transformedData = data.split(";");
+console.log(transformedData);
+
+const nameFragments = ["Son", "MinSeock"];
+const name = nameFragments.join(" ");
+console.log(name);
