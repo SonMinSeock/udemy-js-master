@@ -1,36 +1,13 @@
-const ids = new Set([1, 2, 3]);
+let person = { name: "Son MinSeock" };
+const persons = new WeakSet();
 
-for (const value of ids.values()) {
-  console.log(value);
-}
+persons.add(person);
 
-ids.delete(2);
-console.log(ids);
+//person = null;
 
-if (ids.has(4)) {
-  ids.delete(4);
-}
+const personData = new WeakMap();
+personData.set(person, "Extra info!");
 
-const person1 = { name: "Son" };
-const person2 = { name: "Jane" };
+person = null;
 
-const personData = new Map([[person1, [{ date: "Yesterday", price: 10 }]]]);
-console.log(personData.get(person1));
-
-personData.set(person2, [{ date: "Today", price: 15 }]);
 console.log(personData);
-console.log(personData.get(person2));
-
-for (const [key, value] of personData.entries()) {
-  console.log(key, value);
-}
-
-for (const key of personData.keys()) {
-  console.log(key);
-}
-
-for (const value of personData.values()) {
-  console.log(value);
-}
-
-console.log(personData.size);
