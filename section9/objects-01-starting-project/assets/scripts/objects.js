@@ -1,5 +1,6 @@
+const movieList = document.getElementById("movie-list");
 const person = {
-  name: "손민석",
+  "first-name": "손",
   age: 25,
   hobbies: ["게임", "영화"],
   //   greet: function () {
@@ -15,4 +16,7 @@ delete person.age;
 // person.age = undefined;
 // person.age = null;
 person.isAdmin = false;
-console.log(person);
+console.log(person["first-name"]);
+
+movieList.style["background-color"] = "red";
+movieList.style.display = "block";
