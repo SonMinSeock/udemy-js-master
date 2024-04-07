@@ -10,4 +10,9 @@ const person = {
   },
 };
 
-person.greet();
+person.isAdmin = true;
+delete person.age;
+// person.age = undefined;
+// person.age = null;
+person.isAdmin = false;
+console.log(person);
