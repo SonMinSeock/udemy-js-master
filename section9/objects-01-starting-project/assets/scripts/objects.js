@@ -1,4 +1,3 @@
-"use strict";
 const addMovieBtn = document.getElementById("add-movie-btn");
 const searchBtn = document.getElementById("search-btn");
 const movies = [];
@@ -60,8 +59,6 @@ const addMovieHandler = () => {
     },
     id: Math.random(),
     getFormattedTitle() {
-      console.log(this);
-
       return this.info.title.toUpperCase();
     },
   };
@@ -70,7 +67,8 @@ const addMovieHandler = () => {
   renderMovies();
 };
 
-const searchMovieHandler = () => {
+const searchMovieHandler = function () {
+  console.log(this);
   const filterTerm = document.getElementById("filter-title").value;
   renderMovies(filterTerm);
 };
