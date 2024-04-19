@@ -1,3 +1,11 @@
+class Product {
+  title = "Defaul Title";
+  imageUrl;
+  description;
+}
+
+console.log(new Product());
+
 const productList = {
   products: [
     {
