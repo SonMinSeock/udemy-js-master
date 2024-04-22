@@ -1,4 +1,6 @@
-const [firstName, lastName, ...otherInformation] = ["손", "민석", 25, "프론트엔드 취준생"];
+const user1 = { name: "Son" };
+const personData = [user1, { name: "Kim" }];
 
-console.log(`${firstName} ${lastName}`);
-console.log(otherInformation);
+const numbers = [10, 2, 34, 3.4, 231, 23.2];
+
+console.log(personData.includes(user1));
