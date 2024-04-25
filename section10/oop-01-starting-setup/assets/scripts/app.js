@@ -46,6 +46,11 @@ class ProductItem {
   constructor(product) {
     this.product = product;
   }
+  addToCart() {
+    console.log("장바구니 추가 메서드 실행...");
+    console.log(this.product);
+    console.log(`장바구니 추가`);
+  }
   render() {
     const prodEl = document.createElement("li");
     prodEl.innerHTML = `
@@ -59,6 +64,8 @@ class ProductItem {
             </div>
         </div>
     `;
+    const addCartBtnElement = prodEl.querySelector("button");
+    addCartBtnElement.addEventListener("click", this.addToCart.bind(this));
     return prodEl;
   }
 }
