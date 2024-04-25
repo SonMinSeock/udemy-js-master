@@ -10,6 +10,19 @@ class Product {
   }
 }
 
+class ShoppingCart {
+  items = [];
+  render() {
+    const cartEl = document.createElement("section");
+    cartEl.innerHTML = `
+      <h2>Total: \$${0}</h2>
+      <button>Order Now</button>
+    `;
+    cartEl.classList.add("cart");
+    return cartEl;
+  }
+}
+
 class ProductList {
   products = [
     new Product(
@@ -29,7 +42,6 @@ class ProductList {
   constructor() {}
 
   render() {
-    const renderHook = document.getElementById("app");
     const productListElement = document.createElement("ul");
     productListElement.classList.add("product-list");
 
@@ -38,7 +50,7 @@ class ProductList {
       const prodEl = productItem.render();
       productListElement.append(prodEl);
     }
-    renderHook.append(productListElement);
+    return productListElement;
   }
 }
 
@@ -70,5 +82,20 @@ class ProductItem {
   }
 }
 
-const productList = new ProductList();
-productList.render();
+class Shop {
+  render() {
+    const renderHook = document.getElementById("app");
+
+    const cart = new ShoppingCart();
+    const cartElement = cart.render();
+
+    const productList = new ProductList();
+    const productListElement = productList.render();
+
+    renderHook.append(cartElement);
+    renderHook.append(productListElement);
+  }
+}
+
+const shop = new Shop();
+shop.render();
