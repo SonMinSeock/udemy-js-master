@@ -14,7 +14,7 @@ class ShoppingCart {
   items = [];
   addProudct(product) {
     this.items.push(product);
-    this.totalOutput = `<h2>Total: \$${this.items.length}</h2>`;
+    this.totalOutput.innerHTML = `<h2>Total: \$${this.items.length}</h2>`;
   }
   render() {
     const cartEl = document.createElement("section");
@@ -64,9 +64,7 @@ class ProductItem {
     this.product = product;
   }
   addToCart() {
-    console.log("장바구니 추가 메서드 실행...");
-    console.log(this.product);
-    console.log(`장바구니 추가`);
+    App.addProductToCart(this.product);
   }
   render() {
     const prodEl = document.createElement("li");
@@ -91,8 +89,8 @@ class Shop {
   render() {
     const renderHook = document.getElementById("app");
 
-    const cart = new ShoppingCart();
-    const cartElement = cart.render();
+    this.cart = new ShoppingCart();
+    const cartElement = this.cart.render();
 
     const productList = new ProductList();
     const productListElement = productList.render();
@@ -102,5 +100,17 @@ class Shop {
   }
 }
 
-const shop = new Shop();
-shop.render();
+class App {
+  static cart;
+  static init() {
+    const shop = new Shop();
+    shop.render();
+    this.cart = shop.cart;
+  }
+
+  static addProductToCart(product) {
+    this.cart.addProudct(product);
+  }
+}
+
+App.init();
