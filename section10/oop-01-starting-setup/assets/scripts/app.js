@@ -13,8 +13,17 @@ class Product {
 class ShoppingCart {
   items = [];
   addProudct(product) {
-    this.items.push(product);
-    this.totalOutput.innerHTML = `<h2>Total: \$${this.items.length}</h2>`;
+    const updatedItmes = [...this.items];
+    updatedItmes.push(product);
+    this.cartItems = updatedItmes;
+  }
+  set cartItems(value) {
+    this.items = value;
+    this.totalOutput.innerHTML = `<h2>Total: \$${this.totalAmount.toFixed(2)}</h2>`;
+  }
+  get totalAmount() {
+    const sum = this.items.reduce((preValue, curItem) => preValue + curItem.price, 0);
+    return sum;
   }
   render() {
     const cartEl = document.createElement("section");
