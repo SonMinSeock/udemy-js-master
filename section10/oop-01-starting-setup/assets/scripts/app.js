@@ -45,7 +45,12 @@ class Component {
 class ShoppingCart extends Component {
   items = [];
   constructor(hookId) {
-    super(hookId);
+    super(hookId, false);
+    this.orderProducts = () => {
+      console.log("Ordering...");
+      console.log(this.items);
+    };
+    this.render();
   }
   addProudct(product) {
     const updatedItmes = [...this.items];
@@ -60,6 +65,7 @@ class ShoppingCart extends Component {
     const sum = this.items.reduce((preValue, curItem) => preValue + curItem.price, 0);
     return sum;
   }
+
   render() {
     const cartEl = this.createRootElement("section", "cart");
     cartEl.innerHTML = `
@@ -67,6 +73,8 @@ class ShoppingCart extends Component {
       <button>Order Now</button>
     `;
     this.totalOutput = cartEl.querySelector("h2");
+    const orderButton = cartEl.querySelector("button");
+    orderButton.addEventListener("click", () => this.orderProducts());
   }
 }
 
