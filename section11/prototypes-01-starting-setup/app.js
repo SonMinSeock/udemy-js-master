@@ -35,4 +35,4 @@ console.dir(Person);
 console.log(person.__proto__);
 
 const p2 = new person.__proto__.constructor();
-console.log(p2);
+console.log(person.length);
