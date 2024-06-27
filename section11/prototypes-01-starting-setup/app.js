@@ -1,38 +1,40 @@
-// class AgedPerson {
-//   printAge() {
-//     console.log(this.age);
-//   }
-// }
-
-// class Person extends AgedPerson {
-//   name = "Son";
-//   constructor() {
-//     super();
-//     this.age = 25;
-//   }
-//   greet() {
-//     console.log(`Hi I am ${this.name} and I am ${this.age} years old.`);
-//   }
-// }
-
-function Person() {
-  this.name = "Son";
-  this.age = 25;
-  this.greet = function () {
-    console.log(`Hi I am ${this.name} and I am ${this.age} years old.`);
-  };
-}
-
-Person.prototype.printAge = function () {
-  console.log(this.age);
+const course = {
+  title: "자바스크립트 완벽가이드",
+  rating: 4.5,
 };
 
-const person = new Person();
+Object.setPrototypeOf(course, {
+  ...Object.getPrototypeOf(course),
+  printRaitng: function () {
+    console.log(`${this.rating}/5`);
+  },
+});
 
-person.greet();
+course.printRaitng();
 
-console.dir(Person);
-console.log(person.__proto__);
+const student = Object.create(
+  {
+    printProgress() {
+      console.log(this.progress);
+    },
+  },
+  {
+    name: {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: "Son",
+    },
+  }
+);
 
-const p2 = new person.__proto__.constructor();
-console.log(person.length);
+Object.defineProperty(student, "progress", {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: 0.8,
+});
+
+student.printProgress();
+
+console.log(student);
