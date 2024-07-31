@@ -1,9 +1,15 @@
-const buttonElement = document.querySelector("button");
+const buttonElements = document.querySelectorAll("button");
 
 // buttonElement.onclick = () => alert("Hello!");
 // buttonElement.onclick = () => console.log("클릭했네");
 
-const buttonEventHandler = () => alert("Hello!");
+const buttonEventHandler = (event) => {
+  console.log(event);
+};
+
+const buttonClickHandler = (event) => {
+  event.target.disabled = true;
+};
 
 // buttonElement.addEventListener("click", buttonEventHandler);
 
@@ -19,8 +25,31 @@ const buttonEventHandler = () => alert("Hello!");
 
 const bundFn = buttonEventHandler.bind(this);
 
-buttonElement.addEventListener("click", bundFn);
+buttonElements.forEach((btn) => {
+  btn.addEventListener("mouseenter", buttonEventHandler);
+});
 
-setTimeout(() => {
-  buttonElement.removeEventListener("click", bundFn);
-}, 2000);
+// buttonElements.addEventListener("click", bundFn);
+
+// setTimeout(() => {
+//   buttonElement.removeEventListener("click", bundFn);
+// }, 2000);
+// window.addEventListener("scroll", (event) => {
+//   console.log(event);
+// });
+
+let curElementNumber = 0;
+
+function scrollHandler() {
+  const distanceToBottom = document.body.getBoundingClientRect().bottom;
+
+  console.log(document.documentElement.clientHeight + 150);
+  if (distanceToBottom < document.documentElement.clientHeight + 150) {
+    const newDataElement = document.createElement("div");
+    curElementNumber++;
+    newDataElement.innerHTML = `<p>Element ${curElementNumber}</p>`;
+    document.body.append(newDataElement);
+  }
+}
+
+window.addEventListener("scroll", scrollHandler);
